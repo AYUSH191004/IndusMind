@@ -1,20 +1,13 @@
 from fastapi import FastAPI
 
+from app.api.v1.router import api_router
+from app.core.config import settings
+from backendapp.core.lifespan import lifespan
+
 app = FastAPI(
-    title="Industrial Knowledge Intelligence Platform",
-    version="1.0.0",
+    title=settings.APP_NAME,
+    version=settings.APP_VERSION,
+    lifespan=lifespan,
 )
 
-
-@app.get("/")
-async def root():
-    return {
-        "message": "Industrial Knowledge Intelligence Platform"
-    }
-
-
-@app.get("/health")
-async def health():
-    return {
-        "status": "healthy"
-    }
+app.include_router(api_router)
