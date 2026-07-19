@@ -52,11 +52,9 @@ flower
 ########################################
 # Authentication
 ########################################
-
-python-jose[cryptography]
-passlib[bcrypt]
-bcrypt
-
+PyJWT==2.10.1
+pwdlib[argon2]==0.2.1
+cryptography==45.0.5
 ########################################
 # File Upload
 ########################################
