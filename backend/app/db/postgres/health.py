@@ -9,9 +9,8 @@ from __future__ import annotations
 import time
 from typing import Any
 
-from sqlalchemy import text
-
 from app.db.postgres.engine import engine
+from sqlalchemy import text
 
 
 async def check_database_health() -> dict[str, Any]:

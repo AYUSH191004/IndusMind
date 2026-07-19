@@ -12,8 +12,7 @@ Provides:
 
 from __future__ import annotations
 
-from collections.abc import AsyncGenerator
-
+from app.core.config import settings
 from sqlalchemy import text
 from sqlalchemy.ext.asyncio import (
     AsyncEngine,
@@ -21,8 +20,6 @@ from sqlalchemy.ext.asyncio import (
     async_sessionmaker,
     create_async_engine,
 )
-
-from app.core.config import settings
 
 # ---------------------------------------------------------------------
 # Engine
@@ -42,10 +39,7 @@ engine: AsyncEngine = create_async_engine(
 # ---------------------------------------------------------------------
 
 AsyncSessionFactory = async_sessionmaker(
-    bind=engine,
-    class_=AsyncSession,
-    expire_on_commit=False,
-    autoflush=False
+    bind=engine, class_=AsyncSession, expire_on_commit=False, autoflush=False
 )
 
 # ---------------------------------------------------------------------

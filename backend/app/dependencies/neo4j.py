@@ -9,10 +9,9 @@ from __future__ import annotations
 from collections.abc import AsyncGenerator
 from typing import Annotated
 
+from app.db.neo4j.client import get_graph
 from fastapi import Depends
 from neo4j import AsyncSession
-
-from app.db.neo4j.client import get_graph
 
 
 async def provide_graph() -> AsyncGenerator[AsyncSession, None]:

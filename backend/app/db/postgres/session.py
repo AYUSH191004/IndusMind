@@ -6,14 +6,15 @@ All PostgreSQL ORM models should inherit from Base.
 
 from __future__ import annotations
 
+from collections.abc import AsyncGenerator
 from datetime import datetime
 
+from app.db.postgres.engine import AsyncSessionFactory
 from sqlalchemy import MetaData, func
+from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy.sql.sqltypes import DateTime
-from sqlalchemy.ext.asyncio import AsyncSession
-from collections.abc import AsyncGenerator
-from app.db.postgres.engine import AsyncSessionFactory
+
 # ---------------------------------------------------------------------
 # Naming Convention
 # ---------------------------------------------------------------------
@@ -68,6 +69,7 @@ class PrimaryKeyMixin:
         autoincrement=True,
     )
 
+
 async def get_db() -> AsyncGenerator[AsyncSession, None]:
     """
     Provide a database session.
@@ -77,4 +79,3 @@ async def get_db() -> AsyncGenerator[AsyncSession, None]:
     """
     async with AsyncSessionFactory() as session:
         yield session
-   

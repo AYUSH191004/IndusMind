@@ -12,10 +12,9 @@ Provides:
 
 from __future__ import annotations
 
+from app.core.config import settings
 from redis.asyncio import Redis
 from redis.asyncio.connection import ConnectionPool
-
-from app.core.config import settings
 
 # ---------------------------------------------------------------------
 # Connection Pool

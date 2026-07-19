@@ -17,10 +17,9 @@ from datetime import UTC, datetime, timedelta
 from typing import Any
 
 import jwt
+from app.core.config import settings
 from jwt import InvalidTokenError
 from pwdlib import PasswordHash
-
-from app.core.config import settings
 
 # ---------------------------------------------------------------------
 # Password Hasher
@@ -148,9 +147,7 @@ def validate_secret_key() -> None:
             If the configured secret is considered insecure.
     """
     if len(settings.SECRET_KEY) < 32:
-        raise ValueError(
-            "SECRET_KEY must contain at least 32 characters."
-        )
+        raise ValueError("SECRET_KEY must contain at least 32 characters.")
 
 
 __all__ = [

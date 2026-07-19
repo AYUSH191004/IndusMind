@@ -8,10 +8,9 @@ from __future__ import annotations
 
 from typing import Annotated
 
+from app.core.logging import get_logger
 from fastapi import Depends
 from structlog.stdlib import BoundLogger
-
-from app.core.logging import get_logger
 
 
 def provide_logger() -> BoundLogger:

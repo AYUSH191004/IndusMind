@@ -13,14 +13,13 @@ from __future__ import annotations
 import time
 import uuid
 
-from fastapi import Request, Response
-from starlette.middleware.base import BaseHTTPMiddleware
-
 from app.core.constants import (
     HEADER_REQUEST_ID,
     REQUEST_ID_LOG_KEY,
 )
 from app.core.logging import get_logger
+from fastapi import Request, Response
+from starlette.middleware.base import BaseHTTPMiddleware
 
 logger = get_logger(__name__)
 

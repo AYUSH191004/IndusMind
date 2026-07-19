@@ -4,9 +4,8 @@ API v1 Router
 Central router that aggregates all version 1 API endpoints.
 """
 
-from fastapi import APIRouter
-
 from app.api.v1.endpoints.health import router as health_router
+from fastapi import APIRouter
 
 api_router = APIRouter()
 

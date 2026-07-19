@@ -11,14 +11,13 @@ from collections.abc import AsyncGenerator, Generator
 
 import pytest
 import pytest_asyncio
-from httpx import ASGITransport, AsyncClient
-
 from app.main import app
-
+from httpx import ASGITransport, AsyncClient
 
 # =============================================================================
 # Event Loop
 # =============================================================================
+
 
 @pytest.fixture(scope="session")
 def event_loop() -> Generator[asyncio.AbstractEventLoop, None, None]:
@@ -33,6 +32,7 @@ def event_loop() -> Generator[asyncio.AbstractEventLoop, None, None]:
 # =============================================================================
 # FastAPI Test Client
 # =============================================================================
+
 
 @pytest_asyncio.fixture
 async def client() -> AsyncGenerator[AsyncClient, None]:

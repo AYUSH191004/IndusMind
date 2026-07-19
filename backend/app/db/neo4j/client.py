@@ -13,9 +13,8 @@ from __future__ import annotations
 
 from collections.abc import AsyncGenerator
 
-from neo4j import AsyncDriver, AsyncGraphDatabase
-
 from app.core.config import settings
+from neo4j import AsyncDriver, AsyncGraphDatabase
 
 # ---------------------------------------------------------------------
 # Driver

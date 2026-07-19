@@ -2,9 +2,8 @@
 Health endpoints.
 """
 
-from fastapi import APIRouter
-
 from app.core.config import settings
+from fastapi import APIRouter
 
 router = APIRouter(prefix="/health")
 

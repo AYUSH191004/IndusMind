@@ -18,18 +18,11 @@ import asyncio
 from typing import Any
 
 from app.core.logging import get_logger
-
-from app.db.postgres.health import check_database_health
+from app.db.neo4j.client import check_neo4j_health, close_graph
 from app.db.postgres.engine import close_database
-
-from app.db.redis.client import check_redis_health
-from app.db.redis.client import close_redis
-
-from app.db.neo4j.client import check_neo4j_health
-from app.db.neo4j.client import close_graph
-
-from app.db.qdrant.client import check_qdrant_health
-from app.db.qdrant.client import close_qdrant
+from app.db.postgres.health import check_database_health
+from app.db.qdrant.client import check_qdrant_health, close_qdrant
+from app.db.redis.client import check_redis_health, close_redis
 
 logger = get_logger(__name__)
 

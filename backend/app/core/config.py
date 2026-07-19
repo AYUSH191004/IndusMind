@@ -13,7 +13,7 @@ Priority:
 from enum import Enum
 from functools import lru_cache
 
-from pydantic import Field, computed_field, model_validator
+from pydantic import computed_field, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -128,9 +128,7 @@ class Settings(BaseSettings):
             raise ValueError("Invalid Qdrant port")
 
         if self.ACCESS_TOKEN_EXPIRE_MINUTES <= 0:
-            raise ValueError(
-                "ACCESS_TOKEN_EXPIRE_MINUTES must be positive"
-            )
+            raise ValueError("ACCESS_TOKEN_EXPIRE_MINUTES must be positive")
 
         if not self.SECRET_KEY.strip():
             raise ValueError("SECRET_KEY cannot be empty")
@@ -160,21 +158,14 @@ class Settings(BaseSettings):
     def redis_url(self) -> str:
         """Redis URL."""
 
-        return (
-            f"redis://{self.REDIS_HOST}:"
-            f"{self.REDIS_PORT}/"
-            f"{self.REDIS_DB}"
-        )
+        return f"redis://{self.REDIS_HOST}:{self.REDIS_PORT}/{self.REDIS_DB}"
 
     @computed_field
     @property
     def qdrant_url(self) -> str:
         """Qdrant endpoint."""
 
-        return (
-            f"http://{self.QDRANT_HOST}:"
-            f"{self.QDRANT_PORT}"
-        )
+        return f"http://{self.QDRANT_HOST}:{self.QDRANT_PORT}"
 
     @computed_field
     @property

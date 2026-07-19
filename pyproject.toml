@@ -37,6 +37,8 @@ select = [
     "B",
     "SIM",
     "C4",
+    "UP042",
+    "UP046",
 ]
 
 ignore = [

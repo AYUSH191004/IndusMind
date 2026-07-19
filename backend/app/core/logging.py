@@ -18,7 +18,6 @@ import logging
 import sys
 
 import structlog
-
 from app.core.config import settings
 
 
@@ -37,13 +36,9 @@ def configure_logging() -> None:
     ]
 
     if settings.is_development:
-        processors.append(
-            structlog.dev.ConsoleRenderer()
-        )
+        processors.append(structlog.dev.ConsoleRenderer())
     else:
-        processors.append(
-            structlog.processors.JSONRenderer()
-        )
+        processors.append(structlog.processors.JSONRenderer())
 
     logging.basicConfig(
         format="%(message)s",

@@ -8,10 +8,9 @@ from __future__ import annotations
 
 from typing import Annotated
 
+from app.db.qdrant.client import get_qdrant
 from fastapi import Depends
 from qdrant_client import AsyncQdrantClient
-
-from app.db.qdrant.client import get_qdrant
 
 
 async def provide_qdrant() -> AsyncQdrantClient:

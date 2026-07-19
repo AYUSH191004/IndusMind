@@ -13,13 +13,14 @@ from __future__ import annotations
 
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
+
+from app.core.config import settings
 from app.core.logging import get_logger
 from app.core.security import validate_secret_key
-from fastapi import FastAPI
 from app.db.database_manager import database_manager
-from app.core.config import settings
+from fastapi import FastAPI
 
-logger =get_logger(__name__)
+logger = get_logger(__name__)
 
 
 @asynccontextmanager
@@ -64,7 +65,6 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     # ------------------------------------------------------------------
 
     try:
-       
         yield
     finally:
         # --------------------------------------------------------------
